@@ -1,0 +1,329 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ───────────────────────────────────────────────── */
+
+:root {
+  --navbar-height: 64px;
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 0px;
+  --bottom-nav-height: 60px;
+}
+
+/* ─── Base Resets ─────────────────────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #ffffff;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a3e;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6c63ff;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(108, 99, 255, 0.4);
+    color: #ffffff;
+  }
+
+  /* Focus outlines */
+  :focus-visible {
+    outline: 2px solid #6c63ff;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Remove focus outline for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+/* ─── Component Utilities ─────────────────────────────────────────────────── */
+
+@layer components {
+  /* Layout shells */
+  .layout-main {
+    padding-top: var(--navbar-height);
+    min-height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    .layout-main {
+      margin-left: var(--sidebar-width);
+    }
+  }
+
+  /* Safe area for mobile bottom nav */
+  @media (max-width: 1023px) {
+    .layout-main {
+      padding-bottom: var(--bottom-nav-height);
+    }
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-surface rounded-lg border border-border/60 overflow-hidden transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply bg-surface-hover border-accent/30 shadow-card-hover;
+  }
+
+  /* Pill badges */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-2xs font-semibold;
+  }
+
+  .badge-accent {
+    @apply badge bg-accent/20 text-accent;
+  }
+
+  .badge-success {
+    @apply badge bg-success/20 text-success;
+  }
+
+  .badge-new {
+    @apply badge bg-success/15 text-success border border-success/30;
+  }
+
+  .badge-hot {
+    @apply badge bg-danger/15 text-danger border border-danger/30;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-sm  { @apply btn px-3 py-1.5 text-sm; }
+  .btn-md  { @apply btn px-4 py-2 text-sm; }
+  .btn-lg  { @apply btn px-6 py-3 text-base; }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent-hover active:scale-95 shadow-accent;
+  }
+
+  .btn-secondary {
+    @apply bg-surface text-primary border border-border hover:bg-surface-hover hover:border-accent/40 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-secondary hover:text-primary hover:bg-surface-hover active:scale-95;
+  }
+
+  /* Nav link active state */
+  .nav-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-secondary hover:text-primary hover:bg-surface-hover transition-all duration-150;
+  }
+
+  .nav-link.active {
+    @apply text-primary bg-accent/15 text-accent;
+  }
+
+  /* Section headers */
+  .section-header {
+    @apply flex items-center justify-between mb-4;
+  }
+
+  .section-title {
+    @apply font-display font-bold text-xl text-primary;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-primary placeholder:text-muted
+           focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/30
+           transition-all duration-200;
+  }
+
+  /* Divider */
+  .divider {
+    @apply h-px w-full bg-border my-2;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply bg-surface-hover animate-pulse rounded;
+  }
+}
+
+/* ─── Utility Extras ──────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #6c63ff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Grid for game cards */
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .game-grid {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .game-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+
+  /* Aspect ratios */
+  .aspect-game-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Line clamp helpers */
+  .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
+  .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+}
+
+/* ─── Game Iframe ─────────────────────────────────────────────────────────── */
+
+.game-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  background: #000;
+}
+
+.game-iframe-wrapper iframe {
+  display: block;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Ad Slot Placeholder ─────────────────────────────────────────────────── */
+
+.ad-slot-placeholder {
+  background: linear-gradient(135deg, #13131a, #1e1e2e);
+  border: 1px dashed #2a2a3e;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555570;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─── Transitions ─────────────────────────────────────────────────────────── */
+
+.transition-sidebar {
+  transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+}
+
+/* ─── Game Card Hover ─────────────────────────────────────────────────────── */
+
+.game-card {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.game-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(108, 99, 255, 0.25);
+}
+
+/* ─── Gradient Text ───────────────────────────────────────────────────────── */
+
+.gradient-text {
+  background: linear-gradient(135deg, #6c63ff 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Hero Animated Gradient Background ──────────────────────────────────── */
+
+@keyframes heroGradient {
+  0%   { background-position:  0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:  0% 50%; }
+}
+
+.hero-bg {
+  background: linear-gradient(-45deg, #0a0a0f, #1a1040, #0a1628, #130a1e);
+  background-size: 400% 400%;
+  animation: heroGradient 18s ease infinite;
+}
+
+/* ─── Shimmer Skeleton ────────────────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0%   { background-position:  200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #13131a 25%, #1e1e2e 50%, #13131a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Alias: keep .scrollbar-hide as well as .no-scrollbar */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Smooth horizontal scroll */
+.game-row-scroll {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "slug": "action",
+    "name": "Action",
+    "icon": "⚔️",
+    "color": "#ef4444",
+    "description": "Fast-paced action games to test your reflexes.",
+    "gameCount": 31
+  },
+  {
+    "id": "2",
+    "slug": "puzzle",
+    "name": "Puzzle",
+    "icon": "🧩",
+    "color": "#8b5cf6",
+    "description": "Brain-teasing puzzle games for all ages.",
+    "gameCount": 32
+  },
+  {
+    "id": "3",
+    "slug": "racing",
+    "name": "Racing",
+    "icon": "🏎️",
+    "color": "#f97316",
+    "description": "High-speed racing games.",
+    "gameCount": 20
+  },
+  {
+    "id": "4",
+    "slug": "shooting",
+    "name": "Shooting",
+    "icon": "🔫",
+    "color": "#06b6d4",
+    "description": "Shooting and aim-training games.",
+    "gameCount": 19
+  },
+  {
+    "id": "5",
+    "slug": "sports",
+    "name": "Sports",
+    "icon": "⚽",
+    "color": "#22c55e",
+    "description": "Sports games including football, basketball and more.",
+    "gameCount": 21
+  },
+  {
+    "id": "6",
+    "slug": "io-games",
+    "name": "IO Games",
+    "icon": "🌐",
+    "color": "#6366f1",
+    "description": "Multiplayer .io games you can play instantly.",
+    "gameCount": 27
+  },
+  {
+    "id": "7",
+    "slug": "hypercasual",
+    "name": "Hypercasual",
+    "icon": "👾",
+    "color": "#ec4899",
+    "description": "Simple, addictive hypercasual games.",
+    "gameCount": 32
+  },
+  {
+    "id": "8",
+    "slug": "2-player",
+    "name": "2 Player",
+    "icon": "👫",
+    "color": "#f59e0b",
+    "description": "Games to play with a friend on the same screen.",
+    "gameCount": 18
+  }
+]
