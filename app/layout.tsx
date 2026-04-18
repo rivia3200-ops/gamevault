@@ -140,6 +140,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
+        {/* ── Google AdSense ────────────────────────────────────────── */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1478680066583769"
+          crossOrigin="anonymous"
+        />
+
         {/* ── GA: consent defaults (must be before gtag.js loads) ──── */}
         {isProd && gaId && (
           <script dangerouslySetInnerHTML={{ __html: `
