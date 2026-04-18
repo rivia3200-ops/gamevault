@@ -19,7 +19,7 @@ const siteConfig = {
   name:          'GameVault',
   title:         'GameVault — Play Free Online Games Instantly',
   description:   'Play 1,000+ free online games instantly in your browser. Action, puzzle, racing, shooting, sports and more. No download, no login, no cost.',
-  url:           process.env.NEXT_PUBLIC_SITE_URL || 'https://gamevault.vercel.app',
+  url:           process.env.NEXT_PUBLIC_SITE_URL || 'https://freegamevault.com',
   ogImage:       '/og-image.png',
   twitterHandle: '@gamevaultgg',
 }
