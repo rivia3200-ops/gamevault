@@ -136,7 +136,11 @@ export default function Footer() {
       <div className="border-t border-border/40">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted text-center sm:text-left">
-            Made for gamers, by gamers 🎮 · All games are property of their respective owners.
+            Made for gamers, by gamers 🎮 · All games are property of their respective owners.{' '}
+            Games provided by{' '}
+            <a href="https://www.gamepix.com" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors underline underline-offset-2">
+              GamePix
+            </a>.
           </p>
           <div className="flex items-center gap-4">
             <Link href="/privacy-policy" className="text-xs text-muted hover:text-secondary transition-colors">

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk }    from 'next/font/google'
 import Script                       from 'next/script'
 
+import NextTopLoader        from 'nextjs-toploader'
 import { SidebarProvider }  from '@/contexts/SidebarContext'
 import Navbar               from '@/components/layout/Navbar'
 import Sidebar              from '@/components/layout/Sidebar'
@@ -154,6 +155,7 @@ export default function RootLayout({
       </head>
 
       <body className="bg-background text-primary font-sans antialiased min-h-screen">
+        <NextTopLoader color="#6c63ff" showSpinner={false} height={3} />
         <ToastProvider>
           <SidebarProvider>
             <Navbar />
@@ -161,8 +163,9 @@ export default function RootLayout({
             <div className="flex min-h-screen pt-[64px]">
               <Sidebar />
               <main className={[
-                'flex-1 flex flex-col',
+                'flex-1 min-w-0 flex flex-col',
                 'min-h-[calc(100vh-64px)]',
+                'overflow-x-hidden',
                 'lg:ml-[240px]',
                 'pb-[60px] lg:pb-0',
               ].join(' ')}>

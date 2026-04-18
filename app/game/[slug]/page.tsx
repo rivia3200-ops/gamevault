@@ -147,7 +147,7 @@ export default function GamePage({ params }: { params: { slug: string } }) {
     <>
       <JsonLd game={game} />
 
-      <div className="flex flex-col min-h-full">
+      <div className="flex flex-col min-h-full overflow-x-hidden">
 
         {/* ── Breadcrumb ───────────────────────────────────────────────── */}
         <nav aria-label="Breadcrumb" className="px-4 md:px-6 pt-4 pb-2">
