@@ -89,6 +89,11 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-2.5" role="list">
               <li>
+                <Link href="/blog" className="text-sm text-secondary hover:text-primary transition-colors">
+                  📝 Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy" className="text-sm text-secondary hover:text-primary transition-colors">
                   Privacy Policy
                 </Link>

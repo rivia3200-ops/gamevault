@@ -116,6 +116,12 @@ export default function Navbar() {
 
         {/* ── Right actions ────────────────────────────────────────────── */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
+          <Link
+            href="/blog"
+            className="hidden md:flex items-center px-3 py-1.5 rounded-lg text-sm font-medium text-secondary hover:text-primary hover:bg-surface-hover transition-all duration-150"
+          >
+            Blog
+          </Link>
           {/* Random Game */}
           <button
             type="button"

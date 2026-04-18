@@ -1,11 +1,14 @@
 import { MetadataRoute } from 'next'
 import { getAllGames, getAllCategories } from '@/lib/games'
+import { getAllBlogPosts } from '@/data/blog-posts'
 
 const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://freegamevault.com').replace(/^http:\/\//, 'https://')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const games      = getAllGames()
   const categories = getAllCategories()
+
+  const blogPosts = getAllBlogPosts()
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL,                     priority: 1.0, changeFrequency: 'daily'   },
@@ -29,5 +32,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified:    new Date(game.addedAt),
   }))
 
-  return [...staticPages, ...categoryPages, ...gamePages]
+  const blogIndexPage: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/blog`, priority: 0.8, changeFrequency: 'weekly' },
+  ]
+
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
+    url:             `${BASE_URL}/blog/${post.slug}`,
+    priority:        0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified:    new Date(post.updatedAt),
+  }))
+
+  return [...staticPages, ...blogIndexPage, ...blogPages, ...categoryPages, ...gamePages]
 }
