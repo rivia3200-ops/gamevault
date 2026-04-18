@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getAllGames, getAllCategories } from '@/lib/games'
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://gamevault.io'
+const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://freegamevault.com').replace(/^http:\/\//, 'https://')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const games      = getAllGames()

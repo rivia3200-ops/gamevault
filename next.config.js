@@ -25,6 +25,14 @@ const nextConfig = {
         ],
       },
 
+      // ── Sitemap ───────────────────────────────────────────────────────────
+      {
+        source: '/sitemap.xml',
+        headers: [
+          { key: 'Content-Type', value: 'application/xml' },
+        ],
+      },
+
       // ── Static assets — aggressive caching ────────────────────────────────
       {
         source: '/static/(.*)',
