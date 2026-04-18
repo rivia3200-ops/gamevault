@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 
-const SID      = '2476U';
+const SID      = 'UA330';
 const BASE_URL = `https://feeds.gamepix.com/v2/json?sid=${SID}&pagination=96`;
 
 const CATEGORY_MAP = {
