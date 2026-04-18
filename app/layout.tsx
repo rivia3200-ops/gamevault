@@ -17,8 +17,8 @@ import './globals.css'
 
 const siteConfig = {
   name:          'GameVault',
-  title:         'GameVault — Play Free Online Games Instantly',
-  description:   'Play 1,000+ free online games instantly in your browser. Action, puzzle, racing, shooting, sports and more. No download, no login, no cost.',
+  title:         'FreeGameVault — Free Unblocked Games Online | Play Instantly',
+  description:   'Play 900+ free unblocked games instantly in your browser. No download, no login required. Action, puzzle, racing, shooting, sports and more.',
   url:           process.env.NEXT_PUBLIC_SITE_URL || 'https://freegamevault.com',
   ogImage:       '/og-image.png',
   twitterHandle: '@gamevaultgg',
